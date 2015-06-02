@@ -87,16 +87,16 @@ buildings in space. The buildings and their characteristics are available from
 the city digital cadaster.\\
 
 Based on the building characteristics an appropriate \textit{building type} is
-selected.  In Germany the use of building typologies for the estimation of heat
-demand is a common practice.  Nonetheless this practice requires the user to
-make a subjective decision regarding the choice for a type of building.  In
+selected. In Germany the use of building typologies for the estimation of heat
+demand is a common practice. Nonetheless, this practice requires the user to
+make a subjective decision regarding the choice for a type of building. In
 this paper we present a method to automatically determinate the building type
-given some characteristics of the buildings and a define typology.  This method
+given some characteristics of the buildings and a pre-defined typology. This method
 allows us to: (1) systematically compare results of different building
 typologies; (2) process large amount of building data from a digital cadaster
 without binding the method to the cadaster data structure, making the method
 transferable to other cities with a digital cadaster; and (3) because the
-nature of our method is stochastic, we are able to represent not only a best
+nature of our method is stochastic, we are able to represent not only the best
 estimate of heat demand but the corresponding uncertainty level of the area and
 of the typology.  \\
 
@@ -137,7 +137,7 @@ We want to provide a \textbf{reprodusible} and \textbf{flxible} method for the
 estimation of heat demand of urban areas at a low aggregation level. In this
 paper we describe our first attempt to produce such method. In order to make
 the method reproducible we create a github repository containing all the
-require scripts to reproduce the presented computations and the data used in
+required scripts to reproduce the presented computations and the data used in
 this analysis. The provided data had to be decouple from its spatial reference
 to ensure anonymity. We also provide an Ipython notebook containing step by
 step explanations on how to reproduce the classification process and estimation
@@ -157,7 +157,7 @@ building typologies which provide us with a specific heat demand for each
 building type. Because the use of urban typologies is central for this
 endeavour we present a comparison of different building typologies used for the
 estimation of heat demand in space. In this paper we compare and asses the
-performance of this typologies.\\
+performance of these typologies.\\
 
 We divide the paper into three main sections: (1) Section~\ref{sec:Btype}
 describes the used typologies and the general structure and use of building
@@ -183,7 +183,7 @@ BSU\footnote{BSU (Behörde für Stadtentwicklung und Umwelt) Ministry of Urban
     Development and Environment\url{https://www.hamburg.de/bsu/}}; and
 (5) \textbf{EcoFYS}, a typology developed for the city of Hamburg by the
 consultancy firm EcoFYS\footnote{EcoFYS\url{http://www.ecofys.com/}}.
-In the following section we present an discuss this building typologies. We
+In the following section we present and discuss this building typologies. We
 start with a typology developed at a national level (IWU-de, see
 Sub-Section~\ref{sub-sec:IWU-de}), this is the most used typology in Germany
 for the estimation of heat demand of the building stock.  The second example is
@@ -200,7 +200,7 @@ between these typologies is the level of detail of both typologies.  While the
 first typology developed my the Ministry of Urban Development and Environment
 (BSU) presents a strong simplification of a typology (see
 Sub-Section~\ref{sub-sec:BSU}), giving only specific heat demand of the
-buildings based on two parameter:
+buildings based on two parameters:
 (1) construction age; and
 (2) construction type.
 The second typology, developed for the city of Hamburg, delivers a
@@ -209,21 +209,21 @@ parameters for the building classification can be derived (see
 Sub-Section~\ref{sub-sec:ecofiz}).\\
 
 In order to present a complete overview of the building typologies we make a
-short review of the building typologies at an European level, driven by the
+short review of the building typologies at a European level, driven by the
 European initiative TABULAR (see Sub-Section~\ref{sub-sec:tabular}).  This sub
 section also serves to build a steeping stone towards a systematic approach to
 building typologies and the implementation of them in energy and urban planing
 at a European and global level.  In our final remarks of the paper we revisit
-the use of building typologies at an European level to highlight our envisioned
+the use of building typologies at a European level to highlight our envisioned
 next steps.  (see Sub-Section~\ref{sub-section:next})\\
 
 There are many building typologies for a lot of different regions all over
 Europe, a good overview of the available building typologies in Europe, driven
 by the TABULAR initiative, is provided in~\cite{TABULAProjectTeam.2010}.  In
-Germany there are many examples of this typologies calibrated for specific
-regions or cities.  (e.g.  D{\"u}sseldorf~\cite{ebok.2005};
+Germany there are many examples of these typologies calibrated for specific
+regions or cities.  E.g:  D{\"u}sseldorf~\cite{ebok.2005};
 M{\"u}nster~\cite{Hildebrandt.2003}; Freistaat Sachsen~\cite{ebok.2000};
-Mannheim~\cite{ebokifeu.1998}; and Heidelberg~\cite{ebokifeu.1996}) Nonetheless
+Mannheim~\cite{ebokifeu.1998}; and Heidelberg~\cite{ebokifeu.1996} Nonetheless
 just a few have reached a scientific discussion, finding a way into the
 scientific literature, few examples of this are:~\cite{Kragh.2013,
     Singh.2013, Hrabovszky.2013, Caputo.2013}.
@@ -236,7 +236,7 @@ present an overview of different building typologies used in Germany and
 Europe.  In the second section of the paper we present our approach to
 automatize the classification of the building stock, introducing the concept of
 an array filter that will allocate the building types to the building stock in
-a stochastic manner.  In the third and last section we present the results from
+stochastically. In the third and last section we present the results from
 the postulated filter array and compare the results with monitoring consumption
 for the same area.\\
 
@@ -245,20 +245,20 @@ for single buildings promoting so energy-efficient measures trough the building
 stock~\cite{Kragh.2013, Singh.2013, Dascalaki.2011,
 TABULAProjectTeam.2012}, the use of building typologies finds also use at
 estimating the mitigation potential and vulnerability of the residential
-building stock~\cite{Hrabovszky.2013}.  Through the literature weAA
-also find approaches addressing the issue at a urban
+building stock~\cite{Hrabovszky.2013}.  Through the literature we
+also find approaches addressing the issue at an urban
 scale~\cite{Caputo.2013}, these approaches make use of GIS systems for the
 systematic collection of building information and further classification of the
 building stock.  The collection of building data in GIS systems present an
 interesting tool for the analysis of urban setting rather than the analysis of
 individual buildings of the analysis of the national building stock at an
-aggregated level.  Nonetheless a big problem of such an approach is the
-intensive data recovery needed to fill the building database.  The aim of this
+aggregated level. Nonetheless, a big problem of such an approach is the
+intensive data recovery needed to fill the building database. The aim of this
 paper is to develop and analyse a method that can deal with missing data in
 such databases.\\
 
 The main difference between an analysis of the national building stock, for
-which the building typologies are develop, and an analysis of new decentralized
+which the building typologies are developed, and an analysis of new decentralized
 energy supply systems, which is the scope of our research, relies on scale.
 While the first analysis focus exclusively on the aggregated effect of energy
 efficiency measures of the building stock, the planning of decentralized energy
@@ -268,7 +268,7 @@ decentralized energy supply systems; and
 (2) identify \textit{heat spots} in urban areas in order to allocate retrofit
 priorities.
 For the proper dimensioning of heat supply systems the estimation of heat
-demand demand is a key issue, specially at a low aggregation level.  The use of
+demand is a key issue, specially at a low aggregation level.  The use of
 building typologies for the simulation of heat demand improves as the number of
 buildings are sum together~\cite{Blesl.2007}, this is because many key
 parameters like internal heat gains, internal temperature, ventilation rates,
@@ -289,8 +289,8 @@ based on average parameters taken from national guideline VDI
 3807~\cite{VDI-3807.1994}.  Not only for heat demand a simulation at a low
 aggregation level is important.  We see a trend towards decentralized heat and
 electricity production~\cite{KEMA.2012}, driven mainly by the expansion of
-renewable energies.  High temporal simulation of energy signatures of small
-urban areas for on site generation may be an key development towards low energy
+renewable energies. High temporal simulation of energy signatures of small
+urban areas for on site generation may be a key development towards low energy
 demand neighborhoods~\cite{Koch.2013}.  In order to perform, either a simple
 energy balance of the individual buildings of or a height temporal thermal
 simulation models, the input data of the buildings has to be available.
@@ -299,7 +299,7 @@ individual buildings, needed U-values of the building components are not
 available in the digital cadaster of the city of Hamburg
 ALKIS\footnote{ALKIS~\cite{adv.2008}
 \url{http://www.hmdk.de/trefferanzeige?docuuid=AB8C6B21-BAFF-4230-A686-0C918FEBEE2F}}.
-The use of building typologies to fill this information gap may been an
+The use of building typologies to fill this information gap may bee an
 interesting option.\\
 
 \input{TABLES/BW}
@@ -320,12 +320,12 @@ has been further developed and improved through the years, the current ``base
 typology'' for Germany was developed in~\citeyear{IWU.2003} by the IWU
 institute~\cite{IWU.2003}.  The ``base typology'' defines key parameters
 needed for the computation of heat demand of the single types, like average
-heating space or roof type.  The method use for for the construction of
+heating space or roof type.  The method use for the construction of
 building typologies developed by~\cite{Ebel.1990} is essentially the same
 method used on all available building typologies.  For a technical description
 of the approach currently used for the Germany building typology,
 see~\cite{Loga.2012}.  A synthesis of the typology can be seen in
-Table~\ref{tab:IWU-de} derived from~\cite{Loga.2011}, these typology is the one
+Table~\ref{tab:IWU-de} derived from~\cite{Loga.2011}, these typologies is the one
 used in this analysis.\\
 
 \input{TABLES/TABULAR-IWU}
@@ -334,7 +334,7 @@ used in this analysis.\\
 
 Derived from the ``base typology''~\cite{IWU.2003}, the IWU institute developed
 a tailored typology for the federal state of
-Hessen~\cite{Born.2003}.  We present these typology as an
+Hessen~\cite{Born.2003}.  We present this typology as an
 example of a derived typology ``calibrated'' for a specific region and use it
 as control within our analysis.  As this typology has been specifically
 developed for a different region than the one we are analyzing, we expect that
@@ -349,7 +349,7 @@ the residential building stock through:
 (1) retrofits of the thermal envelope of buildings; and
 (2) a modernization of the heating system\cite{Born.2003}.
 The study by~\citeauthor{Born.2003} analyses typical
-residential buildings buildings for the federal state of Hessen.  As basis for
+residential buildings for the federal state of Hessen.  As basis for
 the energy balancing of the buildings types the authors use the national
 regulation DIN~V~4108--6~\cite{DIN.4108-6} and
 DIN~V~4701--10~\cite{DIN.4701-10}.  The typology is represented by 31
@@ -366,8 +366,8 @@ EPBD''~2002/91/EC~\cite{epbd.2002} and the subsequent directive
 2010/31/EU~\cite{epbd.2010} all member states are required to implement
 measures for the reduction of energy in the building stock.  As part of the
 application of this directive, Germany introduced step by step mandatory issue
-of an ``energy pass''.  Since the introduction of the German energy demand
-regulation law EnEV in 2007 all new constructions have to issue such a energy
+of an ``energy pass''. Since the introduction of the German energy demand
+regulation law EnEV in 2007, all new constructions have to issue such an energy
 pass.  Subsequent since 2008 all buildings constructed previous to 1965 had to
 issue an energy pass, previous to be rented or sell.  Since 2009 all buildings
 have to issue an energy pass in order to sell them or rent
@@ -455,15 +455,16 @@ stock model at a city level is not explicit mentioned in the report.  The
 development of a specific typology for a given city proves to be complicated
 because of lack of available statistics.  For an overview of the different data
 sources used in the project by the participant institutions see
-Table~\ref{tab:TABULA}.  For some of the typologies presented in the TABULAR
+Table~\ref{tab:TABULA}.  For some typologies presented in the TABULAR
 report, a differentiation between climate zones is performed, this is specially
 important for large countries expanding through different climate zones, of for
 countries expanding through climate zones with a substantial difference on the
 air temperatures. Countries differentiating climate zones in the project are:
-(1) Denmark~\cite[p. 49 ]{tabulaprojectteam.2012b}; (2) Greece~\cite[p. 59
-]{tabulaprojectteam.2012b}; (3) Sweden~\cite[p. 101]{tabulaprojectteam.2012b};
-and (4) Spain~\cite[p. 115]{tabulaprojectteam.2012b}.  The implementation of a
-regional typology could be derived from this classification.  The
+(1) Denmark~\cite[p.~49]{tabulaprojectteam.2012b}; (2)
+Greece~\cite[p.~59]{tabulaprojectteam.2012b}; (3)
+Sweden~\cite[p.~101]{tabulaprojectteam.2012b}; and (4)
+Spain~\cite[p.~115]{tabulaprojectteam.2012b}.  The implementation of a regional
+typology could be derived from this classification.  The
 representation of the Hellenic building stock with help of the developed
 building typologies in the TABULAR project are presented
 by~\citeauthor{Dascalaki.2011}, in their paper publish
@@ -479,7 +480,7 @@ demand of the models is performed trough an energy balancing method.  An
 example of the use of building typologies in the scientific community is
 delivered by~\citeauthor{Singh.2013} in their paper
 from~\citeyear{Singh.2013}.  The performed analysis by the authors
-focus on Liege, Belgium.  The aim of this work is to apply the developed
+focus on Liege, Belgium. The aim of this work is to apply the developed
 building typologies to estimate building characteristics and subsequent its
 heat consumption. The result is used for the identification of possible
 measures that the federal state can implement in order to efficiently reduce
@@ -513,13 +514,13 @@ values of the types of the typologies we want to analyze.  In
 Figure~\ref{fig:DifTyp} we can see difference between typologies, we are able
 to compare the typologies in this way because all of them follow a similar
 classification structure.  All the typologies compared in this paper classify
-the single types by construction epoch and construction type.  There are some
+the single types by construction epoch and construction type. There are some
 small differences by the exact construction epoch of some of the typologies,
 there are differences between the division years ($\pm 1$ year) and between the
 number or epochs.  So, for example, in the last epoch not all typologies have a
 type representing this last construction epoch.\\
 
-In Figure~\ref{fig:DifTyp} the types of the different typologies are arrange by
+In Figure~\ref{fig:DifTyp} the types of the different typologies are arranged by
 construction year (construction epoch), the graph clearly shows the
 improvements in heat demand over the years, independent of construction type.
 The figure only contains typologies developed for Germany as are these
@@ -531,14 +532,14 @@ typologies the ones we want to understand and analyzed.\\
 
 In this section we present the developed methodology to classify the building
 stock into the different types of the presented typologies in the previous
-section.  The buildings from the digital cadaster can not be directly
+section. The buildings from the digital cadaster can not be directly
 classified into the building typologies because: (1) the building attributes
 from the digital cadaster do not correspond to the building attributes of the
 building typologies; and (2) some attributes of the digital cadaster are not
 available for the entire building stock.  The digital cadaster has a different
 classification for construction types that of the buildings from the building
-typologies.  In Sub-Section~\ref{sub-sub-sec:Ctype} we present the constructed
-method to cope with this problem.  Some of the attributes available in the
+typologies. In Sub-Section~\ref{sub-sub-sec:Ctype} we present the constructed
+method to cope with this problem. Some attributes available in the
 digital cadaster are not available for the entire building stock, this is
 specially problematic for building without a construction year, because the
 construction epoch is one of the key parameters to classify the buildings.  The
@@ -560,7 +561,7 @@ is important for the calculation of building heating space and transmission
 area of the building envelope, the second parameter is essential for the
 planning the distribution of heat.\\
 
-In order to achieve this goals we developed a methodology that is able to
+In order to achieve these goals we developed a methodology that is able to
 cope with data gaps, both in the building stock database and in the
 building typology itself.
 %
@@ -619,7 +620,7 @@ as heating, leaving 290 observations in the data set.\\
 The digital cadastre for the city of hamburg has information on 369,416
 individual buildings. We only classify the buildings within are represented in
 the gas consumption data 5,300. Although the building typologies are design for
-the classification of the residential sector we have classify all the buildings
+the classification of the residential sector we have classified all the buildings
 including non residential buildings. In our analysis we distinguish between
 residential and non residential buildings for the computation of typology
 performance.\\
@@ -636,20 +637,20 @@ definition of a typology under this data structure make use of 6 parameters:
 (5) number of floors; and
 (6) roof type.
 The selection of these parameters arise from the available parameters on the
-digital cadaster and define parameters in the building typologies.  These data
+digital cadaster and define parameters in the building typologies. These data
 structure is open and flexible, meaning that it could be expanded, including
 different parameters depending on the available information on the analyzed
-urban area and the available data.  The parameters used in our analysis are the
+urban area and the available data. The parameters used in our analysis are the
 combination of available parameters form the digital cadaster and parameters
-used on the individual typologies.  The algorithm processing this parameters
+used on the individual typologies. The algorithm processing these parameters
 will eventually have to be updated, it is therefore imperative to use a
-transparent and open source algorithm.  The used algorithm as well as the
+transparent and open source algorithm. The used algorithm as well as the
 typologies hard code can be found in the supplementary material of this paper
 as well as on the web under \url{https://github.com/emunozh/btyp}.\\
 %TODO: upload and prepare code
 
 In the following sub-sections we describe these parameters, the relevance of the
-individual parameters and the use of this parameters within the typologies.\\
+individual parameters and the use of these parameters within the typologies.\\
 
 \subsubsection{Building Use}
 
@@ -673,7 +674,7 @@ classification of the tertiary sector.  Such an approach is presented
 by~\citet{Loga.2011}, where an analog typology was
 developed for the tertiary sector.  A different approach is presented
 by~\citet{Blesl.2007}, in his
-approach buildings are classified by the require temperature demand for a
+approach buildings are classified by the required temperature demand for a
 specific building use and its underlying process. The integration of the last
 approach will require a redefinition of the source code under our postulated
 classification model.\\
@@ -693,7 +694,7 @@ In order to cope with this problem we had to define rules to merge the
 different construction types from the typology with the construction types from
 the digital cadaster.\\
 
-This rules are define in the form of a simple table (see
+This rules are defined in the form of a simple table (see
 Table~\ref{tab:Ctype}).  Because of the stochastic nature of the algorithm the
 rules define in the table show possible combinations between the construction
 types, rather than deterministic rules to combine the different construction
@@ -713,9 +714,9 @@ the garage floor area from our analysis with this parameter.\\
 \subsubsection{Construction Year}
 
 The third parameter is the most common parameter, specially for the German
-typologies.  This is because in Germany the quality of the building envelope
+typologies. This is because in Germany the quality of the building envelope
 has been regulated since the first ``Wärmeschutzverordnung'' (WSVO) Heat
-conservation ordinance in 1977.  Since it's first introduction, the German
+conservation ordinance in 1977. Since its first introduction, the German
 government has systematically introduced new regulations over the past decades
 creating substantial gaps in the quality of the building envelope over the
 years.\\
@@ -730,19 +731,19 @@ properties of the building envelope between epochs.\\
 The defined ranges of construction years in the algorithm are design to be used
 by any of the typologies analysed in this paper.  For example the IWU-de
 typology has an extra construction period that none of the other building
-typologies has (see Table~\ref{tab:IWU-de}).  The define data structure
+typologies has (see Table~\ref{tab:IWU-de}). The defined data structure
 contains construction periods that satisfy all the construction periods define
-in the individual typologies.  If a single typology contains less periods than
+in the individual typologies. If a single typology contains fewer periods than
 the ones define in the data structure the periods will be simply merge
-together.  See next subsection for a more detailed example.\\
+together. See next subsection for a more detailed example.\\
 
 Based on these two parameters (\textit{construction period} and
 \textit{construction type}), a ``base typology'' is generated, able to contain
-all of the analyzed typologies. Table~\ref{tab:Base} is a graphical
+all the analyzed typologies. Table~\ref{tab:Base} is a graphical
 representation of this base typology with all the different typologies filling
-it.  The table also contains the type number for each typology.  This numbers
+it. The table also contains the type number for each typology. These numbers
 are important as these are used within the algorithm to filter the single types
-of each typology.  In the case of the construction year the extreme range of
+of each typology. In the case of the construction year the extreme range of
 the typology will include all the lower or upper values.  So for example in
 typology (3) IWU-he (highlighted green in the table) construction period
 [1860--1910] will be translated to construction period [\textless~1910]. This
@@ -754,15 +755,15 @@ is defined in the hard code of the typology by defining both periods equally
 \subsubsection{Floor Space}\label{sub-sec:livings}
 
 The floor space is an important parameter used in many of the typologies, this
-parameter can be use to differentiate between small apartment house (KMH) and
+parameter can be used to differentiate between small apartment house (KMH) and
 big apartment house (GMH).  Not all typologies define the average floor area of
 its types.  In Figure~\ref{fig:DifTypArea} we plot the floor space used to
 estimate heat demand of three building typologies for which the floor space is
-defined (a,d) Blesl, (b,e) IWU-de and (c,f) IWU-he.  The figure shows in the
-first row (a,b and c) the floor space for all types while the second row (d,e
-and f) shows only types with more than 4,000~$m^2$.  In the figure we also plot
+defined (a, d) Blesl, (b, e) IWU-de and (c, f) IWU-he.  The figure shows in the
+first row (a,b and c) the floor space for all types while the second row (d, e
+and f) shows only types with more than 4,000~$m^2$. In the figure we also plot
 the limits line (red), this limits represent the rules for the classification
-of buildings into building types based on floor space.  With this limits a
+of buildings into building types based on floor space. With these limits a
 probability for the filter array (see Sub-Section~\ref{sub-sec:filter}) can be
 define.  The definition of this probability uses 4 values representing: (1)
 probable, no building gets filtered out (1.0); (2) less probable, 20\% of
@@ -794,9 +795,9 @@ the average living space of its types.\\
 
 \subsubsection{Number of Floors}
 
-The number of floors are directly retrieved from the digital cadaster.  This
-parameter is define in some of the typologies and can help us to classify the
-buildings between construction types.  This parameter is only used with the
+The number of floors are directly retrieved from the digital cadaster. This
+parameter is defined in some typologies and can help us to classify the
+buildings between construction types. This parameter is only used with the
 float array filter (see Sub-Section~\ref{sub-sec:filter} for a detail
 description of the array filter), as defining this parameter in the binary
 filter my lead to be inconsistencies within the data.  E.g.: a building in the
@@ -813,14 +814,14 @@ probabilities as function of the living space (see sub
 Sub-Section~\ref{sub-sec:livings}). In Table~\ref{tab:pst} the number of
 stories for the different types of two typologies (iwu-he and ecofyz) are
 plotted along with the defined limits needed for the probability definition.
-The definition of this probabilities can be seen in Table~\ref{tab:pst}.\\
+The definition of these probabilities can be seen in Table~\ref{tab:pst}.\\
 
 \input{TABLES/probaog}
 \input{FIGURES/ComparisonFloors}
 
 \subsubsection{Roof Type}
 
-Some of the typologies define the type of roof of the individual types.
+Some typologies define the type of roof of the individual types.
 Because we can gather this information from the digital cadaster, the parameter
 can be used to classify the buildings.  This parameter is only used with the
 float array filter (see Sub-Section~\ref{sub-sec:filter} for a detail
@@ -854,24 +855,24 @@ att_{2~iwu-de} &= [0, 1, 0, \dots, 0]
 
 Each element in the vector represents the probability of being of a certain
 building type, given than $att_i$ is true.  In the binary vector we only define
-the probability as yes/no values represented by 1 and 0.  In this case,
+the probability as yes/no values represented by 1 and 0. In this case,
 position 1 of vector $att_{i~bsu}$ corresponds to building type [efh/dhh
 \textless~1918], position 2 corresponds to type [efh/dhh 1919--1948] ans so
 forth (see table~\ref{tab:HH}).  If we want to give a probability to two
 different buildings having two different construction year, e.g.: (1) building
 (a) has a construction year = 1900; and (2) building (b) has a construction
-year = 1800.  In this example all types that do not correspond to the given
+year = 1800. In this example all types that do not correspond to the given
 construction period will have a probability of 0, they will be filtered out.
-We still have different types that satisfy this restriction.  In a second step
-we apply the same procedure, but using the construction type as filter.  After
-this filter we may still have 2 options, in this case one of this types will be
-randomly selected (see Figure~\ref{tab:filter}a).  We perform this filtering a
-define number of times (i.e. Monte Carlo) defining so the possible distribution
+We still have different types that satisfy this restriction. In a second step
+we apply the same procedure, but using the construction type as filter. After
+this filter we may still have two options, in this case one of these types will be
+randomly selected (see Figure~\ref{tab:filter}a). We perform this filtering a
+defined number of times (i.e. Monte Carlo) defining so the possible distribution
 of building types of that particular building and subsequent, the heat
 distribution, and therefor the attached uncertainties, of heat supply for small
 urban areas.\\
 
-Because some of the typologies define the average living area and the average
+Because some typologies define the average living area and the average
 number of stories we can use these parameters to further filter possible types
 for a specific building. In order to do this we apply a \textit{float array},
 which defines the probability of being from a certain type as
@@ -879,7 +880,7 @@ float\footnote{float as in number definition in the python language, see
     \url{http://docs.python.org/2/library/stdtypes.html}} values between 1.0
 and 0.0 (see Figure~\ref{tab:filter}b).\\
 
-With this method we can define a matrix containing all the filter probabilities
+With this method we can defined a matrix containing all the filter probabilities
 for each attribute defined in the typology, if an attribute is not define in
 the typology the probabilities for this attribute (vector) will all be equal to
 1. The matrix can be define as in Equation~\ref{eq:att}, and a probability
@@ -894,8 +895,7 @@ att_{m,n} = \bordermatrix{~ & typ_1 & typ_2 & \cdots & typ_n \cr
 	att_1 & att_{1,1} & att_{1,2} & \cdots & att_{1,n} \cr
 	att_2 & att_{2,1} & att_{2,2} & \cdots & att_{2,n} \cr
 	\vdots & \vdots  & \vdots  & \ddots & \vdots  \cr
-	att_m & att_{m,1} & att_{m,2} & \cdots & att_{m,n}
-	}
+	att_m & att_{m,1} & att_{m,2} & \cdots & att_{m,n}}
 \end{equation}
 
 \begin{equation} \label{eq:att}
@@ -948,7 +948,7 @@ aggregation format. The data set records monitoring points, each point
 represents a group of buildings, the building groups contain both residential
 and non residential buildings. The building typologies analyzed in this paper
 are calibrated to estimate the residential part of the building stock only.
-Because we know which building is in each group we can at least know what
+Because we know which building is in each group, we can at least know what
 percent of the heated area corresponds to the residential sector. This makes it
 possible to weight the observation points by heated residential floor area.\\
 
@@ -991,7 +991,7 @@ $D$ represents the verage (1000 iterations) heat demand aggregated to point
 $i$ and $R$ represents the share of residential floor space in point
 $i$\\
 
-We present four results from the typologies comparison as: (1) the relative
+We present four results from the comparison as: (1) the relative
 difference between demand and consumption wighted by share of residential floor
 area (see Table~\ref{tab:diff}); (2) the difference of the sum of demand and
 consumption for the entire analysed area (see Table~\ref{tab:diffAbs}); (3) the
@@ -1020,7 +1020,7 @@ estimated living space. Another alternative explanation could be achieve by
 looking at the climate conditions at the specific monitored year. The monitored
 year may have been as especially warm year, making the heat consumption lower
 than the average, for which the typologies are designed. As the aim of this
-paper is to compare the performance between typologies the overall performance
+paper is to compare the performance between typologies, the overall performance
 of the typologies plays a secondary roll in this analysis.\\
 
 \begin{equation}\label{eq:wsz}
@@ -1059,7 +1059,7 @@ specific data for the construction of the typology.\\
 The result from our first analysis, comparing the performance of the typologies
 by the weighted mean difference between estimated heat demand and monitored gas
 consumption, show little variation between the typologies. The use of the float
-array has an small effect on the typologies that provide more background
+array has a small effect on the typologies that provide more background
 information, needed for the classification with the float array. In the case of
 the BSU typology, that provides little background information, the use of the
 float typology has almost no impact on the performance of the typology.\\
@@ -1084,7 +1084,7 @@ monitoring points with only residential buildings. For monitoring points with
 only residential sector we see the opposite pattern, the building typologies
 underestimate heat demand.\\
 
-The Z-statistic gives us a sense of the typology performance at a individual
+The Z-statistic gives us a sense of the typology performance at an individual
 level rather that the overall performance of the typology. The performance at
 an individual level shows that the typologies constructed for Germany out
 performed the typologies design for Hamburg.\\
@@ -1121,7 +1121,7 @@ building typologies for the estimation of heat demand at low aggregation level:
         specific cases.
 \end{enumerate}
 
-For the proper classification of the building stock plays a significant roll in
+For the proper classification of the building stock plays a significant role in
 the accurate estimation of heat demand in small urban areas. The use of a
 digital cadastre for this classification presents itself as a great data
 source, to achieve a good classification, unfortunately this data source alone
@@ -1133,7 +1133,7 @@ classification of the buildings stock and for the estimation of heat demand:
 (1) construction year; and (2) floor space.  The proper estimation of
 construction year would reduce the uncertainty of the classification procedure.
 The second parameter, floor space, is extremely important for the estimation of
-heat demand because building typologies provide an specific value for heat
+heat demand because building typologies provide a specific value for heat
 demand in $[kWh/m^2a]$ we multiply this value by the ``heated space'' to
 estimate absolute heat demand in $[kWh/a]$.\\
 
@@ -1152,11 +1152,11 @@ buildings connected to the gas grid for which we have the monitored consumption
 values at an aggregated level.  See Section~\ref{sub-sec:data} for details on
 data sources.\\
 
-We have identify two important observations in these maps: (1) an over
+We have identified two important observations in these maps: (1) an over
 estimated heat demand for non residential buildings, agglomerated in the north
 part of the map; and (2) a possible identification of ``heat spots'' in urban
 areas.  These two observations are particular interesting. The first may
-explain an overestimation of the heat demand for some of the monitored points
+explain an overestimation of the heat demand for some monitored points
 and the second one presents an interesting application of this method.  We
 briefly discuss the first observation in the next subsection
 (Sub-Section~\ref{sub-section:NR}) making the argument for the need to expand
@@ -1171,7 +1171,7 @@ the analysis and discuss further paths to expand this method.\\
 Many of the developed typologies have extended their approach to the tertiary
 sector~\cite{Loga.2011, Hermelink.2011}, as it is this sector that will be
 mixed in urban areas with the residential sector. An estimation of the
-industrial sector will differ to much from the typology approach in order to be
+industrial sector will differ too much from the typology approach in order to be
 include into this methodology. A different approach is presented
 by~\cite{Blesl.2007}, in which the authors attempt to classify the tertiary
 sector by the required temperature of the processes within the building.  This
@@ -1208,7 +1208,7 @@ see~\cite{Buchert.2004, Ecoplan.2000, Einig.2006, Erhorn.2011}.\\
 
 \subsection{Next Steps --- Expanding the Method}\label{sub-section:next}
 
-In this sub section we discuss the use of building typologies at an European
+In this sub section we discuss the use of building typologies at a European
 and global level. We argue the need to work on method rather than on specific
 national building typologies, making a focus on available data of the single
 countries.  We also make a small excursion to the use of urban typologies for
@@ -1218,7 +1218,7 @@ urban typologies rather that building typologies.\\
 Having access to a detailed digital cadaster of the city offers a vast set of
 possibilities for the simulation of heat demand of urban areas.  A simple
 balance of heat demand can be performed without much effort and with a relative
-low input of data.  Much of the needed data for a energy balance of a single
+low input of data.  Much of the needed data for an energy balance of a single
 building can be recover through the digital cadaster.  The missing data for
 such a computation are the U-values of the single building components.  These
 building typologies are not constructed for this purpose.  There is an
@@ -1230,9 +1230,9 @@ by the Center for Environmental Friendly Construction\footnote{(Zentrum für
 With help of this catalog we could simulate heat consumption upon building
 components rather than upon building typologies.  First attempts have been
 performed by our research team~\cite{Munoz.2014c}. The simulation at such level of
-detail may foster further insights on different topics needed for an holistic
+detail may foster further insights on different topics needed for a holistic
 understanding of urban systems.  This method could be applied for the
-simulation of material flows in urban systems as well as a estimation of
+simulation of material flows in urban systems as well as an estimation of
 retrofit cost and the construction and demolition waste arising from such
 retrofits.\\
 %TODO: support with some literature about CDW

@@ -3,6 +3,7 @@ tmp/
 *.latexmain
 *.bak
 _BUK/
+*.orig
 
 !TABLES/
 !FIGURES/

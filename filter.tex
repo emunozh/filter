@@ -10,6 +10,7 @@
 %\usepackage{amssymb}
 \usepackage{amsmath, amsfonts, amsthm, amssymb} 
 \usepackage{lineno}
+\usepackage{url}
 %\usepackage{array}
 %\usepackage{mathptmx}
 
@@ -169,7 +170,7 @@ state of Hessen (see Sub-Section~\ref{sub-sec:IWU-he}).  With our method we
 want to show how this different typologies behave for the use of small urban
 areas in the city of Hamburg.  It is expected that the typology developed for
 Germany will perform better than the one calibrated for the building stock of
-Hessen.  We go further with our analysis and analyse two different typologies
+Hessen.  We go further with our analysis and compare two different typologies
 specially developed for the city of Hamburg, expecting them to perform much
 better by the analysis of a small urban area of the city.  The difference
 between these typologies is the level of detail of both typologies.  While the
@@ -230,7 +231,7 @@ interesting tool for the analysis of urban setting rather than the analysis of
 individual buildings of the analysis of the national building stock at an
 aggregated level. Nonetheless, a big problem of such an approach is the
 intensive data recovery needed to fill the building database. The aim of this
-paper is to develop and analyse a method that can deal with missing data in
+paper is to develop and analyze a method that can deal with missing data in
 such databases.\\
 
 The main difference between an analysis of the national building stock, for
@@ -243,7 +244,7 @@ supply needs to:
 decentralized energy supply systems; and
 (2) identify \textit{heat spots} in urban areas in order to allocate retrofit
 priorities.
-For the proper dimensioning of heat supply systems the estimation of heat
+For the proper dimension of heat supply systems the estimation of heat
 demand is a key issue, specially at a low aggregation level.  The use of
 building typologies for the simulation of heat demand improves as the number of
 buildings are sum together~\cite{Blesl.2007}, this is because many key
@@ -1037,7 +1038,7 @@ $r_i$ the share of non residential floor space in measure point $i$\\
 \input{TABLES/result}
 
 The result from this analysis shows little variation between typologies. This
-is very interesting because the underlaying data and methodology for the
+is very interesting because the underlying data and methodology for the
 construction of the typologies differ between the typologies. While the
 typology from~\cite{Blesl.2002} does not use any consumption values for the
 construction of the building typology the IWUde typology~\cite{IWU.2003} used
@@ -1098,6 +1099,7 @@ building typologies for the estimation of heat demand at low aggregation level:
         construction of better building typologies.
     \item There is much room for improvement for the classification of the
         building stock. We see this endeavour as part of our ongoing research.
+        building stock. We see this endeavor as part of our ongoing research.
         Available analysis tools can be use for a better classification of the
         building stock, an improvement of the classification can improve the
         performance of these building typologies.
@@ -1153,7 +1155,7 @@ this analysis to the non residential sector.  In the subsequent section
 (Sub-Section~\ref{sub-section:next}) we discuss the further implementation of
 the analysis and discuss further paths to expand this method.\\
 
-\input{FIGURES/ResSpace}
+%\input{FIGURES/ResSpace}
 
 \subsection{The Need to Include Non Residential Building in the Analysis Scope}\label{sub-section:NR}
 
@@ -1175,17 +1177,16 @@ buildings.\\
 Another interesting alternative, especially for an urban setting without a
 comprehensive digital cadastre, can be the use of urban typologies.
 % A tiny contribution by Ivan Dochev
-% TODO: add reference
 An example for such a typology is the one developed by~\cite{Hegger.2014}, which
 divides the urban territory into areas with specific heat demand and potential
 for renewable energy sources. The heat demand is based upon the character of
 the urban fabric --for example-- predominantly single family houses, terrace
 houses, prefabricated blocks etc. The potential for renewables is derived again
-from the character of the areas with the amount of non built up areas being a
+from the character of the areas with the amount oFf non built up areas being a
 signal for the potential of geothermal and biomass energy and the typical roof
 form (slope, aspect), for the given area, --a signal for solar energy
 potential. In this typology, however, the heat demand of the non residential
-buildings is taken down to the building level, being analysed as ``single-elements''
+buildings is taken down to the building level, being analyzed as ``single-elements''
 rather than urban areas (with one urban area exception, in which the demand of
 tertiary sector is calculated per area of the urban type). Since almost the
 entire heat demand of these urban areas does come from the buildings (and the
@@ -1206,7 +1207,7 @@ if the aim of the analysis relies not on the single buildings but on entire
 urban areas taking into account not only the single heat demand of the
 buildings but the underlying infrastructure supporting the area, a more
 holistic approach, using areas rather than buildings, may be useful. \citet{Roth.1980}
-developed an urban typology design for the dimensioning of
+developed an urban typology design for the dimension of
 district heating systems. In Germany and Switzerland, the use of urban
 typologies for the description of the building stock and the underlying
 infrastructure has a long tradition.
@@ -1259,16 +1260,13 @@ retrofits.\\
 % Estimating the relationship between urban forms and energy consumption: A case
 % study in the Pearl River Delta, 2005–2008
 
-%% If you have bibdatabase file and want bibtex to generate the
-%% bibitems, please use
 %%
 \section*{Bibliography}
-\bibliographystyle{elsarticle-harv} 
-%\bibliography{/home/esteban/Documents/Bib/Diss.bib}
-\bibliography{filter.bib}
+%\bibliographystyle{elsarticle-harv} 
+%\bibliography{filter.bib}
 
-\section*{Annex}
-\input{TABLES/EcofysParam}
+%\section*{Annex}
+%\input{TABLES/EcofysParam}
 
 \end{linenumbers}
 \end{document}

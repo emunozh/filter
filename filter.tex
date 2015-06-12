@@ -43,25 +43,6 @@
 \begin{frontmatter}
 
 %% Title, authors and addresses
-
-%% use the tnoteref command within \title for footnotes;
-%% use the tnotetext command for theassociated footnote;
-%% use the fnref command within \author or \address for footnotes;
-%% use the fntext command for theassociated footnote;
-%% use the corref command within \author for corresponding author footnotes;
-%% use the cortext command for theassociated footnote;
-%% use the ead command for the email address,
-%% and the form \ead[url] for the home page:
-%% \title{Title\tnoteref{label1}}
-%% \tnotetext[label1]{}
-%% \author{Name\corref{cor1}\fnref{label2}}
-%% \ead{email address}
-%% \ead[url]{home page}
-%% \fntext[label2]{}
-%% \cortext[cor1]{}
-%% \address{Address\fnref{label3}}
-%% \fntext[label3]{}
-
 \title{Allocating heat consumption of residential buildings in space with help
     of a filter array to determinate the building type in a digital cadaster}
 
@@ -75,11 +56,6 @@
 
 \address[HCU]{HafenCity Universit\"{a}t, Hamburg, DE}
   %Technical Urban Infrastructure Systems Group,
-
-%% use optional labels to link authors explicitly to addresses:
-%% \author[label1,label2]{}
-%% \address[label1]{}
-%% \address[label2]{}
 
 \begin{abstract}
 In this paper we present a method to allocate heat demand of residential
@@ -923,6 +899,19 @@ p =
 
 \input{FIGURES/BtypTable}
 
+Figure~\ref{tab:filter} shows the thwo developed arrays, the first line of the
+arrays represent the possible building types (A, B, C, etc\dots).  Each array
+has 4 attributes ($Att_{i}$) that will filter the typologies depending on the
+building characteristics.  The first example (a) representing the use of a
+binary array, in which attributes filter certain typologies in a deterministic
+way. In this example the building $X$ has attribute $Att_1$ and therefor the
+probability of building $X$ of being of type $A$ is 0.  and the second array
+(b) representing the use of a float array, in which attributes filter the
+typologies in a probabilistic way. In this example the building $X$ has
+attribute $Att_1$, the probability of building $X$ of being of type $A$ remains
+0, but the probability of this building of being of a different type is also
+defined in this array.
+
 \section{Heat Demand and Heat Consumption}\label{sec:result}
 
 In this section we present: (1) the performance of the analysed typologies; (2)
@@ -1278,8 +1267,8 @@ retrofits.\\
 %\bibliography{/home/esteban/Documents/Bib/Diss.bib}
 \bibliography{filter.bib}
 
-%\section*{Annex}
-%\input{TABLES/EcofysParam}
+\section*{Annex}
+\input{TABLES/EcofysParam}
 
 \end{linenumbers}
 \end{document}

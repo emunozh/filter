@@ -2,3 +2,6 @@ tmp/
 *.pdf
 *.latexmain
 *.bak
+
+!TABLES/
+!FIGURES/

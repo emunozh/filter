@@ -110,7 +110,7 @@ into a knowledge base urban planning schema. In order to achieve such a
 planning schema we need information about the urban areas, here we present an
 approach to classify the building stock for the estimation of heat demand.\\
 
-We want to provide a \textbf{reprodusible} and \textbf{flxible} method for the
+We want to provide a \textbf{reproducible} and \textbf{flexible} method for the
 estimation of heat demand of urban areas at a low aggregation level. In this
 paper we describe our first attempt to produce such method. In order to make
 the method reproducible we create a github repository containing all the
@@ -706,7 +706,7 @@ suited for areas where there is no substantial differences of the thermal
 properties of the building envelope between epochs.\\
 
 The defined ranges of construction years in the algorithm are design to be used
-by any of the typologies analysed in this paper.  For example the IWU-de
+by any of the typologies analyzed in this paper.  For example the IWU-de
 typology has an extra construction period that none of the other building
 typologies has (see Table~\ref{tab:IWU-de}). The defined data structure
 contains construction periods that satisfy all the construction periods define
@@ -900,7 +900,7 @@ p =
 
 \input{FIGURES/BtypTable}
 
-Figure~\ref{tab:filter} shows the thwo developed arrays, the first line of the
+Figure~\ref{tab:filter} shows the two developed arrays, the first line of the
 arrays represent the possible building types (A, B, C, etc\dots).  Each array
 has 4 attributes ($Att_{i}$) that will filter the typologies depending on the
 building characteristics.  The first example (a) representing the use of a
@@ -915,20 +915,20 @@ defined in this array.
 
 \section{Heat Demand and Heat Consumption}\label{sec:result}
 
-In this section we present: (1) the performance of the analysed typologies; (2)
+In this section we present: (1) the performance of the analyzed typologies; (2)
 a simple visualization of the result in space (the only part of this analysis
 that can be reproduces with the provided data ans scripts); (3) a discussion
 regarding the performance of buildings typologies for the analysis of heat
 demand in space; (4) a brief discussion on urban typologies and the advantage
 of urban typologies over building typologies; and (5) present some possible
 implementation of the presented method and future path in our analysis.  We
-present a comparison of the typologies and analysed their performance in a
+present a comparison of the typologies and analyzed their performance in a
 small urban area in the city of Hamburg, Germany. We use this urban area
 because we have access to gas consumption data for this area, supplied as part
-of a monitoring program, making it possible to analyse the performance of the
+of a monitoring program, making it possible to analyze the performance of the
 different typologies for the estimation of heat demand.\\
 
-The monitoring data is suboptimal for this analysis but is the only data we
+The monitoring data is sub-optimal for this analysis but is the only data we
 have access to for an urban area for which we also have data regarding the
 characteristics of the building stock. The monitoring data consists of gas
 consumption data given as consumed volume of gas, this has been transformed to
@@ -982,9 +982,9 @@ $i$ and $R$ represents the share of residential floor space in point
 $i$\\
 
 We present four results from the comparison as: (1) the relative
-difference between demand and consumption wighted by share of residential floor
+difference between demand and consumption weighted by share of residential floor
 area (see Table~\ref{tab:diff}); (2) the difference of the sum of demand and
-consumption for the entire analysed area (see Table~\ref{tab:diffAbs}); (3) the
+consumption for the entire analyzed area (see Table~\ref{tab:diffAbs}); (3) the
 percentage of measuring points for which the developed algorithm over estimated
 heat demand (see Table~\ref{tab:diffOver}); and (4) deviation of a weighted
 Z-statistic (see Table~\ref{tab:WSZ}).  In all four tables we present the
@@ -1069,7 +1069,7 @@ different pattern. Typology IWU-de has the lowest share of overestimated points
 among all typologies. The shear of overestimated points does not vary much with
 a change in consumption level for this typology.
 The share of overestimated points can be explain by the non residential sector.
-The share of overestimated points reduced drastically by analysing only
+The share of overestimated points reduced drastically by analyzing only
 monitoring points with only residential buildings. For monitoring points with
 only residential sector we see the opposite pattern, the building typologies
 underestimate heat demand.\\
@@ -1089,16 +1089,15 @@ building typologies for the estimation of heat demand at low aggregation level:
     \item The typologies do not consider user influence on the consumption of
         heat demand, we argue for the integration of demographic
         characteristics of the occupants for a specif modeling of user
-        behaviour in the computation of heat demand.
+        behavior in the computation of heat demand.
         See~\cite{Munoz.2014b} for the allocation of families to
         the building stock and~\cite{Munoz.2014c} for the integration of
-        user behaviour in urban heat demand models.
+        user behavior in urban heat demand models.
     \item The used data for the construction of the typologies is rarely
         monitored heat consumption but estimated values. We pledge the
         community to for a transparent and open share of monitored data for the
         construction of better building typologies.
     \item There is much room for improvement for the classification of the
-        building stock. We see this endeavour as part of our ongoing research.
         building stock. We see this endeavor as part of our ongoing research.
         Available analysis tools can be use for a better classification of the
         building stock, an improvement of the classification can improve the
@@ -1261,12 +1260,12 @@ retrofits.\\
 % study in the Pearl River Delta, 2005–2008
 
 %%
-\section*{Bibliography}
-\bibliographystyle{elsarticle-harv} 
-\bibliography{filter.bib}
+%\section*{Bibliography}
+%\bibliographystyle{elsarticle-harv} 
+%\bibliography{filter.bib}
 
-\section*{Annex}
-\input{TABLES/EcofysParam}
+%\section*{Annex}
+%\input{TABLES/EcofysParam}
 
 \end{linenumbers}
 \end{document}

@@ -4,6 +4,7 @@ tmp/
 *.bak
 _BUK/
 *.orig
+*.bbl
 
 !TABLES/
 !FIGURES/

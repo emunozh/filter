@@ -771,8 +771,4 @@
 %%
 \endinput
 %%
-<<<<<<< HEAD
 %% End of file `elsarticle.cls'.
-=======
-%% End of file `elsarticle.cls'.
->>>>>>> 36a956db0f2ffb15b4b8091da9293464a1b25a0c

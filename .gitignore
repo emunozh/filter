@@ -2,6 +2,7 @@ tmp/
 *.pdf
 *.latexmain
 *.bak
+_BUK/
 
 !TABLES/
 !FIGURES/

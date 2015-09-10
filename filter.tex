@@ -59,7 +59,7 @@
   %Technical Urban Infrastructure Systems Group,
 
 \begin{abstract}
-In this paper we present a method to allocate heat demand of residential
+In this paper we present a method to estimate heat demand of residential
 buildings in space. The buildings and their characteristics are available from
 the city digital cadaster.\\
 
@@ -75,19 +75,19 @@ without binding the method to the cadaster data structure, making the method
 transferable to other cities with a digital cadaster; and (3) because the
 nature of our method is stochastic, we are able to represent not only the best
 estimate of heat demand but the corresponding uncertainty level of the area and
-of the typology.  \\
+of the typology.\\
 
-We expect to expand this method for the use of urban typologies able to
-estimate and allocate heat demand of urban morphologies without the need of a
-digital cadaster, expanding so the accessibility to this method to a global
-scale.\\
+%We expect to expand this method for the use of urban typologies able to
+%estimate and allocate heat demand of urban morphologies without the need of a
+%digital cadaster, expanding so the accessibility to this method to a global
+%scale.\\
 
 The presented results in this paper have shown that: (1) national typologies
-under estimate heat demand of the single buildings in the selected urban area,
+under estimate heat demand of the single buildings in the selected urban areas,
 while typologies developed for specific regions over estimate heat demand of
 the same urban area; (2) national typologies perform better at an aggregated
-level, while regional typologies perform better at a micro level (3) an
-identification of ``hot spots'' in small urban areas is possible.  (4) for a
+level, while regional typologies perform better at a micro level; (3) an
+identification of ``hot spots'' in small urban areas is possible and (4) for a
 comprehensive identification of retrofit areas in urban spaces we need to
 integrate: (a) the tertiary sector and (b) possible heat sources that can
 supply the demand of these ``hot spots''.
@@ -104,29 +104,31 @@ supply the demand of these ``hot spots''.
 \section{Estimation heat demand for small urban areas}
 
 The planing of cities and the planning of the underlying infrastructure to
-support the demand of the individual buildings is a challenge for both: urban
+support the ressources demand of the individual buildings is a challenge for both: urban
 planners and infrastructure planners. In this paper we discuss the first step
 into a knowledge base urban planning schema. In order to achieve such a
 planning schema we need information about the urban areas, here we present an
-approach to classify the building stock for the estimation of heat demand.\\
+approach to classify the building stock intop building types for the estimation of heat demand.\\
 
 We want to provide a \textbf{reprodusible} and \textbf{flxible} method for the
 estimation of heat demand of urban areas at a low aggregation level. In this
-paper we describe our first attempt to produce such method. In order to make
+paper we describe our first attempt to produce such a method. In order to make
 the method reproducible we create a github repository containing all the
 required scripts to reproduce the presented computations and the data used in
 this analysis. The provided data had to be decouple from its spatial reference
 to ensure anonymity. We also provide an Ipython notebook containing step by
 step explanations on how to reproduce the classification process and estimation
 of heat demand with the provided scripts. All this data can be found under the
-link: \url{https://github.com/emunozh/btyp}\\
+link: \url{https://github.com/emunozh/btyp}.\\
 
 In order to ensure flexibility we have constructed our set of scripts so that
 these scripts can be expanded to incorporate new parameters and new functions.
 The definition of individual typologies are hard coded into individual python
 files. The addition of new typologies would require to only provide a new
 python file. In order to facilitate this process we also provide a small script
-to generate a base typology for the easy generation of new typologies.\\
+to generate a base typology for the easy generation of new typologies.
+The syntax used for this file can be compared to a JSON file. A knowledge of the
+python language is not a requirement for the use of these scripts.\\
 
 We present a method for the estimation of heat demand of small urban areas at a
 low aggregation (individual buildings). For this estimation we make use of
@@ -160,20 +162,20 @@ BSU\footnote{BSU (Behörde für Stadtentwicklung und Umwelt) Ministry of Urban
     Development and Environment\url{https://www.hamburg.de/bsu/}}; and
 (5) \textbf{EcoFYS}, a typology developed for the city of Hamburg by the
 consultancy firm EcoFYS\footnote{EcoFYS\url{http://www.ecofys.com/}}.
-In the following section we present and discuss this building typologies. We
+In the following section we present and discuss these building typologies. We
 start with a typology developed at a national level (IWU-de, see
 Sub-Section~\ref{sub-sec:IWU-de}), this is the most used typology in Germany
-for the estimation of heat demand of the building stock.  The second example is
+for the estimation of heat demand of the residential building stock. The second example is
 a derivation from the fist typology.  The German typology developed by the IWU
 institute is calibrated for the use of this typology to the specific federal
-state of Hessen (see Sub-Section~\ref{sub-sec:IWU-he}).  With our method we
+state of Hessen (see Sub-Section~\ref{sub-sec:IWU-he}). With our method we
 want to show how this different typologies behave for the use of small urban
-areas in the city of Hamburg.  It is expected that the typology developed for
+areas in the city of Hamburg. It is expected that the typology developed for
 Germany will perform better than the one calibrated for the building stock of
-Hessen.  We go further with our analysis and compare two different typologies
+Hessen. We go further with our analysis and compare two different typologies
 specially developed for the city of Hamburg, expecting them to perform much
-better by the analysis of a small urban area of the city.  The difference
-between these typologies is the level of detail of both typologies.  While the
+better by the analysis of a small urban area of the city. The difference
+between these typologies is the level of detail of both typologies. While the
 first typology developed my the Ministry of Urban Development and Environment
 (BSU) presents a strong simplification of a typology (see
 Sub-Section~\ref{sub-sec:BSU}), giving only specific heat demand of the
@@ -187,52 +189,51 @@ Sub-Section~\ref{sub-sec:ecofiz}).\\
 
 In order to present a complete overview of the building typologies we make a
 short review of the building typologies at a European level, driven by the
-European initiative TABULAR (see Sub-Section~\ref{sub-sec:tabular}).  This sub
+European initiative TABULAR (see Sub-Section~\ref{sub-sec:tabular}). This sub
 section also serves to build a steeping stone towards a systematic approach to
 building typologies and the implementation of them in energy and urban planing
-at a European and global level.  In our final remarks of the paper we revisit
+at a European and global level. In our final remarks of the paper we revisit
 the use of building typologies at a European level to highlight our envisioned
-next steps.  (see Sub-Section~\ref{sub-section:next})\\
+next steps (see Sub-Section~\ref{sub-section:next}).\\
 
 There are many building typologies for a lot of different regions all over
 Europe, a good overview of the available building typologies in Europe, driven
-by the TABULAR initiative, is provided in~\cite{TABULAProjectTeam.2010}.  In
+by the TABULAR initiative, is provided in~\cite{TABULAProjectTeam.2010}. In
 Germany there are many examples of these typologies calibrated for specific
-regions or cities.  E.g:  D{\"u}sseldorf~\cite{ebok.2005};
+regions or cities. E.g: D{\"u}sseldorf~\cite{ebok.2005};
 M{\"u}nster~\cite{Hildebrandt.2003}; Freistaat Sachsen~\cite{ebok.2000};
 Mannheim~\cite{ebokifeu.1998}; and Heidelberg~\cite{ebokifeu.1996} Nonetheless
-just a few have reached a scientific discussion, finding a way into the
-scientific literature, few examples of this are:~\cite{Kragh.2013,
-    Singh.2013, Hrabovszky.2013, Caputo.2013}.
+just a few have reached a scientific discussion,
+few examples of this are:~\cite{Kragh.2013, Singh.2013, Hrabovszky.2013, Caputo.2013}.
 Most of the developed typologies are developed as technical reports or
 brochures targeting real state developers or home users, specially in
 Germany.\\
 
-We have structure the paper into 3 main sections.  In the first section we
-present an overview of different building typologies used in Germany and
-Europe.  In the second section of the paper we present our approach to
-automatize the classification of the building stock, introducing the concept of
-an array filter that will allocate the building types to the building stock in
-stochastically. In the third and last section we present the results from
-the postulated filter array and compare the results with monitoring consumption
-for the same area.\\
+%We have structure the paper into 3 main sections. In the first section we
+%present an overview of different building typologies used in Germany and
+%Europe.  In the second section of the paper we present our approach to
+%automatize the classification of the building stock, introducing the concept of
+%an array filter that will allocate the building types to the building stock in
+%stochastically. In the third and last section we present the results from
+%the postulated filter array and compare the results with monitoring consumption
+%for the same area.\\
 
-The use of building typologies is used to estimate different retrofit scenarios
-for single buildings promoting so energy-efficient measures trough the building
+The use of building typologies is used to estimate the impact of different retrofit scenarios
+for single buildings, promoting so energy-efficient measures trough the building
 stock~\cite{Kragh.2013, Singh.2013, Dascalaki.2011,
 TABULAProjectTeam.2012}, the use of building typologies finds also use at
-estimating the mitigation potential and vulnerability of the residential
-building stock~\cite{Hrabovszky.2013}.  Through the literature we
+estimating the climate change mitigation potential and vulnerability of the residential
+building stock~\cite{Hrabovszky.2013}. Through the literature we
 also find approaches addressing the issue at an urban
 scale~\cite{Caputo.2013}, these approaches make use of GIS systems for the
 systematic collection of building information and further classification of the
-building stock.  The collection of building data in GIS systems present an
+building stock. The collection of building data in GIS systems present an
 interesting tool for the analysis of urban setting rather than the analysis of
 individual buildings of the analysis of the national building stock at an
 aggregated level. Nonetheless, a big problem of such an approach is the
 intensive data recovery needed to fill the building database. The aim of this
 paper is to develop and analyze a method that can deal with missing data in
-such databases.\\
+such databases by automatically classifying the building stock into building typologies.\\
 
 The main difference between an analysis of the national building stock, for
 which the building typologies are developed, and an analysis of new decentralized
@@ -245,13 +246,13 @@ decentralized energy supply systems; and
 (2) identify \textit{heat spots} in urban areas in order to allocate retrofit
 priorities.
 For the proper dimension of heat supply systems the estimation of heat
-demand is a key issue, specially at a low aggregation level.  The use of
+demand is a key issue, specially at a low aggregation level. The use of
 building typologies for the simulation of heat demand improves as the number of
 buildings are sum together~\cite{Blesl.2007}, this is because many key
 parameters like internal heat gains, internal temperature, ventilation rates,
-thermal bridges, etc, cannot be recover for every single building.  In order to
+thermal bridges, etc, cannot be recover for every single building. In order to
 perform the heat demand computation the authors have to use average values
-define in national guidelines.  For the construction of the typology the author
+define in national guidelines. For the construction of the typology the authors
 classify the buildings by its construction epoch and its construction type
 (single family house, terrace house, etc.). This type of classification is a
 standard in the construction of building typologies~\cite{Ebel.1990,
@@ -261,21 +262,21 @@ standard in the construction of building typologies~\cite{Ebel.1990,
 
 An example of such an approach can be seen in Table~\ref{tab:BW}, this approach
 does not use a building stock database for its construction, neither uses real
-consumption data for its construction.  The construction of such a typology is
-based on average parameters taken from national guideline VDI
-3807~\cite{VDI-3807.1994}.  Not only for heat demand a simulation at a low
-aggregation level is important.  We see a trend towards decentralized heat and
+consumption data for its definition. The construction of such a typology is
+based on average parameters taken from national guideline 
+VDI~3807~\cite{VDI-3807.1994}. Not only for heat demand a simulation at a low
+aggregation level is important. We see a trend towards decentralized heat and
 electricity production~\cite{KEMA.2012}, driven mainly by the expansion of
 renewable energies. High temporal simulation of energy signatures of small
 urban areas for on site generation may be a key development towards low energy
-demand neighborhoods~\cite{Koch.2013}.  In order to perform, either a simple
+demand neighborhoods~\cite{Koch.2013}. In order to perform, either a simple
 energy balance of the individual buildings of or a height temporal thermal
 simulation models, the input data of the buildings has to be available.
 Although digital cadaster data sets offer a vast amount of information of the
 individual buildings, needed U-values of the building components are not
 available in the digital cadaster of the city of Hamburg
-ALKIS\footnote{ALKIS~\cite{AdV.2008}
-\url{http://www.hmdk.de/trefferanzeige?docuuid=AB8C6B21-BAFF-4230-A686-0C918FEBEE2F}}.
+(ALKIS\footnote{ALKIS~\cite{AdV.2008}
+\url{http://www.hmdk.de/trefferanzeige?docuuid=AB8C6B21-BAFF-4230-A686-0C918FEBEE2F}}).
 The use of building typologies to fill this information gap may bee an
 interesting option.\\
 
@@ -285,8 +286,14 @@ In this paper we do not perform any calculation of heat demand, the aim of this
 paper is to compare the performance of different building typologies on a small
 urban area and to present our first efforts towards a systematic process to
 automatize the classification of the building stock into building typologies.
-The method presented in this paper could be expand into an individual building
-heat balance method.\\
+\citen{Munoz.2014b} use a building typology for the definition of U-values 
+in a heat transfer model.
+\citen{Munoz.2014c} use the same building typology and corresponding U-Values
+in a thermal simulation model with a high temporal resolution.
+%TODO: quote papers on heat balance method and thermal simulation
+%The method presented in this paper could be expand into an individual building
+%heat balance method.
+\\
 
 \subsection{IWU-de --- a Typology for Germany}\label{sub-sec:IWU-de}
 
